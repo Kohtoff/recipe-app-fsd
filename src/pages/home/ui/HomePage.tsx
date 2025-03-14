@@ -1,12 +1,11 @@
+import { SearchBar } from "features/search-bar";
+
 export const HomePage = () => {
   return (
-    <div>
-      <section>User bar</section>
-      <section>Header section</section>
-      <section>Search bar</section>
-      <section>categories</section>
-      <section>recommendations</section>
-      <section>recipes</section>
+    <div className="pt-4">
+      <section className="px-6">
+        <SearchBar />
+      </section>
     </div>
   );
 };
