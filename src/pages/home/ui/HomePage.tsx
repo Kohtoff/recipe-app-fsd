@@ -1,11 +1,10 @@
-import { SearchBar } from "features/search-bar";
+import FiltersSection from "./sections/FiltersSection";
 
 export const HomePage = () => {
   return (
     <div className="pt-4">
-      <section className="px-6">
-        <SearchBar />
-      </section>
+      {/* Filters */}
+      <FiltersSection />
     </div>
   );
 };

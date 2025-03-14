@@ -1,18 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
-
   /* colors */
-  --color-primary: #1FCC79;
-  --color-secondary: #FF6464;
-  --color-typography-primary: #2E3E5C;
-  --color-typography-secondary: #9FA5C0;
-  --color-outline: #D0DBEA;
-  --color-surface: #F4F5F7;
+  --color-primary: #1fcc79;
+  --color-secondary: #ff6464;
+  --color-typography-primary: #2e3e5c;
+  --color-typography-secondary: #9fa5c0;
+  --color-outline: #d0dbea;
+  --color-surface: #f4f5f7;
 
   /* typography */
-  --font-inter: 'Inter', 'sans-serif';
+  --font-inter: "Inter", "sans-serif";
   /* 12px */
   --text-xs: 0.75rem;
   /* 15px */
@@ -54,5 +53,19 @@
   small {
     @apply text-xs leading-xs font-medium;
   }
+  *::-webkit-scrollbar {
+    @apply w-2 h-1.5;
+  }
+  *::-webkit-scrollbar-track {
+    @apply rounded-full w-10;
+  }
+  *::-webkit-scrollbar-track {
+    @apply bg-transparent w-10;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 opacity-30 blur-2xl;
+  }
 }
-
