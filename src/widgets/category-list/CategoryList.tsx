@@ -1,6 +1,7 @@
-import CategoryItem from "./CategoryItem"
 
 // type Props = {}
+
+import { CategoryItem } from "entities/category"
 
 const categories = [
     'meal', 'sushi', 'beef', 'pasta', 'american', 'kurkruma'

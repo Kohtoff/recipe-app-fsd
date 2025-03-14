@@ -6,7 +6,7 @@ type Props = {
   isSelected?: boolean;
 };
 
-const CategoryItem = ({ category, isSelected }: Props) => {
+export const CategoryItem = ({ category, isSelected }: Props) => {
   return (
     <button
       className={cn(
@@ -18,5 +18,3 @@ const CategoryItem = ({ category, isSelected }: Props) => {
     </button>
   );
 };
-
-export default CategoryItem;
