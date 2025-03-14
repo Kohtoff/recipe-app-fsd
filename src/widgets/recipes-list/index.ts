@@ -1,1 +1,1 @@
-export { CategoryList as CategorySelector } from "./RecipesList";
+export { RecipeList as CategorySelector } from "./RecipesList";

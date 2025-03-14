@@ -1,20 +1,32 @@
-import { cn } from "shared/libs/classnames";
+
+export type Recipe = {
+  dateModified: string;
+  idMeal: string;
+  strArea: string;
+  strCategory: string;
+  strCreativeCommonsConfirmed: string;
+  strImageSource: string;
+  strInstructions: string;
+  strMeal: string;
+  strMealAlternate: string;
+  strMealThumb: string;
+  strSource: string;
+  strTags: string;
+  strYoutube: string;
+};
 
 type Props = {
-  category: any;
-  isSelected?: boolean;
+  data: Recipe;
 };
 
-export const RecipeCard = ({ category, isSelected }: Props) => {
+export const RecipeCard = ({ data }: Props) => {
+  const item = data;
+  console.log(data)
   return (
-    <button
-      className={cn(
-        "px-6 bg-surface rounded-4xl h-12 cursor-pointer flex text-typography-secondary hover:text-black duration-200 ease-in items-center justify-center",
-        !isSelected || "bg-primary font-bold text-white"
-      )}
-    >
-      <p>{category}</p>
-    </button>
+    <article className={''}>
+      <img className="aspect-square rounded-2xl" src={item.strMealThumb}></img>
+      <h2 className="mt-4 mb-2 text-typography-primary">{item.strMeal}</h2>
+      <small className="text-typography-secondary">{item.strCategory} 60 mins</small>
+    </article>
   );
 };
-

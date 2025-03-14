@@ -1,16 +1,28 @@
-
 // type Props = {}
 
-import { RecipeCard } from "entities/recipe/RecipeCard";
+import { Recipe, RecipeCard } from "entities/recipe/RecipeCard";
+import { useEffect, useState } from "react";
 
-const categories = ["meal", "sushi", "beef", "pasta", "american", "kurkruma"];
+export const RecipeList = () => {
+  const [data, setData] = useState<Recipe[]>([]);
 
-export const CategoryList = () => {
+  useEffect(() => {
+    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) =>{
+        console.log(res)
+         setData(res.meals)});
+  }, []);
+
+  if (!data.length) {
+    return <span>loading</span>;
+  }
+
   return (
-    <div className="flex max-w-screen overflow-auto gap-4 px-6 pb-3">
-      {categories.map((category, index) => (
-        <RecipeCard key={index} category={category} />
-      ))}
+    <div className="grid grid-flow-row grid-cols-2 gap-x-6 gap-y-8 px-6">
+      {data.map((item) => <RecipeCard data={item} />)}
     </div>
   );
 };

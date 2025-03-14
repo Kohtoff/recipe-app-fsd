@@ -1,3 +1,4 @@
+import { RecipeList } from "widgets/recipes-list/RecipesList";
 import FiltersSection from "./sections/FiltersSection";
 
 export const HomePage = () => {
@@ -5,6 +6,8 @@ export const HomePage = () => {
     <div className="pt-4">
       {/* Filters */}
       <FiltersSection />
+      <div className="mt-6"></div>
+      <RecipeList />
     </div>
   );
 };
