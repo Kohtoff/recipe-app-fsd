@@ -1,7 +1,8 @@
 import { createRoutesFromElements, Route } from "react-router-dom";
-import { RootLayout } from "../layout/root";
-import { Fallback } from "/src/shared/ui/fallback";
-import { HomePage } from "/src/pages/home";
+import { RootLayout } from "app/layout/root";
+import { Fallback } from "shared/ui/fallback";
+import { HomePage } from "pages/home";
+
 
 export const AppRouter = () => {
   const routers = createRoutesFromElements(
