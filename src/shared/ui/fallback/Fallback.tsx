@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom"
-import { RejectedDataType } from "shared/types"
+import { RejectedDataType } from "shared/model"
 
 
 export function Fallback() {

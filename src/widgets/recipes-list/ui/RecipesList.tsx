@@ -1,6 +1,6 @@
 // type Props = {}
 
-import { Recipe, RecipeCard } from "entities/recipe/RecipeCard";
+import { Recipe, RecipeCard } from "entities/recipe";
 import { useEffect, useState } from "react";
 
 export const RecipeList = () => {
@@ -11,9 +11,9 @@ export const RecipeList = () => {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((res) =>{
-        console.log(res)
-         setData(res.meals)});
+      .then((res) => {
+        setData(res.meals);
+      });
   }, []);
 
   if (!data.length) {
@@ -22,7 +22,9 @@ export const RecipeList = () => {
 
   return (
     <div className="grid grid-flow-row grid-cols-2 gap-x-6 gap-y-8 px-6">
-      {data.map((item) => <RecipeCard data={item} />)}
+      {data.map((item) => (
+        <RecipeCard key={item.idMeal} data={item} />
+      ))}
     </div>
   );
 };

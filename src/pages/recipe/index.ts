@@ -1,1 +1,1 @@
-export {Recipe} from "./Recipe";
+export {Recipe} from "./ui/Recipe";

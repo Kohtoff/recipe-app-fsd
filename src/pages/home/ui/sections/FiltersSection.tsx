@@ -1,11 +1,14 @@
-import { SearchBar } from "features/search-bar";
+import { SearchBar } from "features/search";
+import { useState } from "react";
+import Divider from "shared/ui/Divider";
 import { CategorySelector } from "widgets/category-list";
-
+import { RecipesFilters } from "widgets/recipes-filters";
 
 const FiltersSection = () => {
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   return (
     <section className="space-y-6 px-6">
-      <div className="">
+      <div onClick={() => setIsFiltersOpen(true)} className="">
         <SearchBar />
       </div>
       <div>
@@ -14,7 +17,10 @@ const FiltersSection = () => {
           <CategorySelector />
         </div>
       </div>
-      <div className="-mx-6 h-2 w-screen bg-surface"></div>
+      <Divider />
+      {isFiltersOpen && (
+        <RecipesFilters onClose={() => setIsFiltersOpen(false)} />
+      )}
     </section>
   );
 };

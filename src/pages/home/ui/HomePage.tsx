@@ -1,4 +1,4 @@
-import { RecipeList } from "widgets/recipes-list/RecipesList";
+import { RecipeList } from "widgets/recipes-list";
 import FiltersSection from "./sections/FiltersSection";
 
 export const HomePage = () => {

@@ -1,1 +1,2 @@
-export {} from "./RecipeCard";
+export * from "./ui/RecipeCard";
+export * from './model'

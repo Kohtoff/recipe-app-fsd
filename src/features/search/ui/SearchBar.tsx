@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { Input } from "shared/ui/input";
 
-// type Props = {};
+type Props = {
+  onChange?: (value: string) => void;
+  defaultValue?: string;
+};
 
-export const SearchBar = () => {
-  const [query, setQuery] = useState("");
+export const SearchBar = ({ onChange, defaultValue }: Props) => {
+  
+  const [query, setQuery] = useState(defaultValue ?? "");
+
+  const handleChange = (value: string) => {
+    setQuery(value);
+    if (onChange) onChange(value);
+  };
+
   return (
     <div>
       <Input
@@ -27,7 +37,7 @@ export const SearchBar = () => {
         }
         placeholder="Search"
         className="bg-surface focus:ring-primary focus:border-primary border-surface focus:outline-primary"
-        onChange={(value) => setQuery(value)}
+        onChange={handleChange}
         value={query}
       />
     </div>
