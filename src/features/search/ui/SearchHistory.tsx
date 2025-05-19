@@ -2,12 +2,21 @@ import { useProductFilters } from "widgets/recipes-filters";
 
 const searchHistory = ["pancakes", "salad"];
 
-export const SearchHistory = () => {
-  const { setFilters } = useProductFilters('SearchHistory');
+type Props = {
+  onSelect: () => void;
+}
+
+export const SearchHistory = ({ onSelect }: Props) => {
+  const { setFilters } = useProductFilters();
+
+  const handleSelect = (query: string) => {
+    setFilters({ search: query })
+    onSelect()
+  }
   return (
     <ul className="space-y-6 py-6">
       {searchHistory.map((query) => (
-        <li onClick={() => setFilters({ search: query })} key={query} className="flex w-full items-center">
+        <li onClick={() => handleSelect(query)} key={query} className="flex w-full items-center">
           <div className="text-typography-secondary mr-[17px]">
             <svg
               width="24"

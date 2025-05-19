@@ -6,18 +6,18 @@ export function useProductFilters() {
 
   // To retrieve parameters if they already exist.
   const search = searchParams.get("search");
-  const category = searchParams.get("category");
+  const categories = searchParams.get("categories");
+  const normalizedCategories = categories ? categories.split(',') : [];
 
   // Set the params
   const setFilters = useCallback((filters: any) => {
-    console.log("SET FILTER");
     setSearchParams((params) => {
       if (filters.search !== undefined) {
         params.set("search", filters.search);
       }
 
-      if (filters.category) {
-        params.set("category", filters.category);
+      if (filters.categories) {
+        params.set("categories", filters.categories);
       }
 
       return params;
@@ -26,7 +26,7 @@ export function useProductFilters() {
 
   return {
     search,
-    category,
+    categories: normalizedCategories,
     setFilters,
   };
 }

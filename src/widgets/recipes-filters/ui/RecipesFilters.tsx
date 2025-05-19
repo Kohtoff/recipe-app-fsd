@@ -23,7 +23,7 @@ export const RecipesFilters = ({ onClose }: Props) => {
       </header>
       <main>
         <Divider />
-        <SearchHistory />
+        <SearchHistory onSelect={onClose} />
         <Divider />
         <SearchSuggestions />
       </main>

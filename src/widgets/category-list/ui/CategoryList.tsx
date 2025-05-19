@@ -1,30 +1,30 @@
 // type Props = {}
 
 import { CategoryItem } from "entities/category";
-import { useState } from "react";
+import { useProductFilters } from "widgets/recipes-filters";
 
-const categories = ["meal", "sushi", "beef", "pasta", "american", "kurkruma"];
+const categoriesOptions = ["meal", "sushi", "beef", "pasta", "american", "kurkruma"];
 
 export const CategoryList = () => {
-  const [selectedCategories, setSelectedCategories] = useState<Array<string>>(
-    []
-  );
+  const { categories, setFilters } = useProductFilters();
+  
 
   const onToggle = (category: string) => {
-    if (selectedCategories.includes(category)) {
-      const filteredList = selectedCategories.filter(
+    if (categories.includes(category)) {
+      const filteredList = categories.filter(
         (selectedCategory) => selectedCategory !== category
       );
-      setSelectedCategories(filteredList);
+      setFilters({ categories: filteredList });
       return;
     }
-    setSelectedCategories((prev) => [...prev, category]);
+    setFilters({ categories: [...categories, category]});
+    
   };
 
   return (
     <div className="flex max-w-screen overflow-auto gap-4 px-6 pb-3">
-      {categories.map((category, index) => {
-        const isSelected = selectedCategories.includes(category);
+      {categoriesOptions.map((category, index) => {
+        const isSelected = categories.includes(category);
         return (
           <CategoryItem
             onClick={onToggle}
