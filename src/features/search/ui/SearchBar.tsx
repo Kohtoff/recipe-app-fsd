@@ -1,17 +1,13 @@
-import { useState } from "react";
 import { Input } from "shared/ui/input";
 
 type Props = {
   onChange?: (value: string) => void;
   defaultValue?: string;
+  autoFocus?: boolean;
 };
 
-export const SearchBar = ({ onChange, defaultValue }: Props) => {
-  
-  const [query, setQuery] = useState(defaultValue ?? "");
-
+export const SearchBar = ({ onChange, defaultValue, autoFocus }: Props) => {
   const handleChange = (value: string) => {
-    setQuery(value);
     if (onChange) onChange(value);
   };
 
@@ -35,10 +31,11 @@ export const SearchBar = ({ onChange, defaultValue }: Props) => {
             />
           </svg>
         }
+        autoFocus={autoFocus}
         placeholder="Search"
         className="bg-surface focus:ring-primary focus:border-primary border-surface focus:outline-primary"
         onChange={handleChange}
-        value={query}
+        value={defaultValue ?? ""}
       />
     </div>
   );
