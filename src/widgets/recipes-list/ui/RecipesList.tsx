@@ -2,6 +2,7 @@
 
 import { Recipe, RecipeCard } from "entities/recipe";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const RecipeList = () => {
   const [data, setData] = useState<Recipe[]>([]);
@@ -23,7 +24,9 @@ export const RecipeList = () => {
   return (
     <div className="grid grid-flow-row grid-cols-2 gap-x-6 gap-y-8 px-6">
       {data.map((item) => (
-        <RecipeCard key={item.idMeal} data={item} />
+        <Link to={`/recipe/${item.idMeal}`}>
+          <RecipeCard key={item.idMeal} data={item} />
+        </Link>
       ))}
     </div>
   );
