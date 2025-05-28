@@ -4,7 +4,7 @@ export const BottomNav = () => {
   const location = useLocation();
 
   return (
-    <div className="sm:hidden">
+    <div className="">
       <nav className="fixed bottom-0 w-full bg-white">
         <div className="mx-auto flex h-16 max-w-md items-center justify-around px-7">
           {links.map(({ href, label, icon }) => (

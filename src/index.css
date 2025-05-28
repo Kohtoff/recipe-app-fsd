@@ -9,7 +9,6 @@
   --color-typography-secondary: #9fa5c0;
   --color-outline: #d0dbea;
   --color-surface: #f4f5f7;
-
   /* typography */
   --font-inter: "Inter", "sans-serif";
   /* 12px */
@@ -67,5 +66,19 @@
   }
   *::-webkit-scrollbar-thumb {
     @apply bg-gray-300 opacity-30 blur-2xl;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply rounded-4xl text-[15px] py-[19px] font-bold flex justify-center
+  }
+
+  .btn.primary {
+    @apply text-white bg-primary
+  }
+
+  .btn.secondary {
+    @apply text-typography-primary bg-surface
   }
 }

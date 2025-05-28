@@ -8,6 +8,7 @@ import { RootLayout } from "app/layout/root";
 import { Fallback } from "shared/ui/fallback";
 import { HomePage } from "pages/home";
 import { Recipe } from "pages/recipe";
+import { UploadPage } from "pages/upload";
 
 export const AppRouter = () => {
   const routers = createRoutesFromElements(
@@ -17,6 +18,8 @@ export const AppRouter = () => {
       </Route>
       <Route path="/recipe" element={<RootLayout />}>
         <Route path=":id" index element={<Recipe />} />
+      </Route>
+      <Route path="/upload" index element={<UploadPage />}>
       </Route>
 
       <Route path="*" element={<Fallback />} />
