@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes, ReactNode } from "react";
+import { FC, InputHTMLAttributes, ReactNode } from "react";
 import { cn } from "shared/libs/classnames";
 
 export type InputProps = Omit<
